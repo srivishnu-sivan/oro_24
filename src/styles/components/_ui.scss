@@ -1,0 +1,162 @@
+@use "../utils/_variable.scss" as *;
+
+
+.button {
+  @include flex-center;
+  font-family: $font-family-base;
+  font-weight: 500;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  @include transition-all;
+  @include focus-ring;
+
+  &--primary {
+    background-color: $primary;
+    color: $text-white;
+
+    &:hover {
+      background-color: $primary-dark;
+    }
+  }
+
+  &--secondary {
+    background-color: $accent;
+    color: $text-white;
+  }
+
+  &--outline {
+    background-color: transparent;
+    border: 1px solid $primary;
+    color: $primary;
+
+    &:hover {
+      background-color: rgba($primary, 0.1);
+    }
+  }
+
+  &--sm {
+    font-size: $font-size-xs;
+    padding: 6px 12px;
+  }
+
+  &--md {
+    font-size: $font-size-sm;
+    padding: 8px 16px;
+  }
+
+  &--lg {
+    font-size: $font-size-md;
+    padding: 12px 24px;
+  }
+
+  &--xl {
+    font-size: $font-size-lg;
+    padding: 16px 32px;
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &__loading {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+  }
+}
+
+.edit-text {
+  width: 100%;
+  padding: 14px;
+  background-color: $input-bg;
+  border: 1px solid $input-border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-input;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: $text-primary;
+  @include transition-all;
+  @include focus-ring;
+
+  &:focus {
+    border-color: $primary;
+  }
+
+  &::placeholder {
+    color: $input-placeholder;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &--error {
+    border-color: $bg-error;
+  }
+
+  &--success {
+    border-color: #10b981;
+  }
+}
+
+.pagination {
+  @include flex-center;
+  gap: 4px;
+
+  &__item {
+    @include flex-center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 12px;
+    border: 1px solid $border-secondary;
+    border-radius: $radius-md;
+    background-color: $secondary;
+    color: $text-primary;
+    font-size: $font-size-base;
+    @include transition-all;
+    @include focus-ring;
+
+    &:hover:not(:disabled) {
+      background-color: $secondary-light;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &--active {
+      background-color:rgb(177,138,9);
+      color: $text-white;
+
+      &:hover {
+        background-color: $primary-dark;
+      }
+    }
+  }
+
+  &__ellipsis {
+    @include flex-center;
+    min-width: 36px;
+    height: 36px;
+    color: $text-muted;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

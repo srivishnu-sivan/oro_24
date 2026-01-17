@@ -1,0 +1,188 @@
+// Services Page
+@use "../../utils/variable.scss" as *;
+
+
+.services {
+  min-height: 100vh;
+  background-color: $secondary-light;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .services-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1440px;
+     margin: 2rem auto 0rem auto;
+    padding: 0 1.25rem;
+    gap: 2rem;
+
+    @include responsive(lg) {
+      flex-direction: row;
+      padding: 0 4.25rem 0px 7.2rem;
+    }
+  }
+
+  &__hero {
+    background-color: $secondary;
+    width: 100%;
+
+    .container {
+      @include flex-between;
+      flex-direction: column;
+      max-width: 1440px;
+      margin: 0 auto;
+
+      @include responsive(lg) {
+        flex-direction: row;
+      }
+    }
+
+    &__content {
+      width: 100%;
+      padding: 3rem 1rem;
+
+      @include responsive(lg) {
+        width: 50%;
+        padding: 6rem 204px 6rem 0;
+      }
+    }
+
+    &__title {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: $primary-light;
+
+      span {
+        &.bold {
+          font-weight: 700;
+        }
+
+        &.small {
+          font-size: 18px;
+          display: block;
+          margin-top: 0.5rem;
+        }
+      }
+
+      @include responsive(sm) {
+        font-size: 28px;
+      }
+
+      @include responsive(md) {
+        font-size: 33px;
+      }
+
+      @include responsive(lg) {
+        font-size: 44px;
+        line-height: 78px;
+
+        .small {
+          font-size: 24px;
+          line-height: 42px;
+        }
+      }
+    }
+
+    &__image {
+      position: relative;
+      width: 100%;
+      height: 200px;
+
+      @include responsive(sm) {
+        height: 250px;
+      }
+
+      @include responsive(lg) {
+        width: 38%;
+        height: 342px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        width: 54%;
+        background: linear-gradient(to right, transparent, $secondary);
+      }
+    }
+  }
+
+  &__section {
+    padding: 2rem 1rem;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      width: 100%;
+
+      @include responsive(sm) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @include responsive(md) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      @include responsive(lg) {
+        grid-template-columns: repeat(8, 1fr);
+      }
+    }
+
+    &__category {
+      @include flex-col;
+      @include flex-center;
+      padding: 1rem;
+      border-radius: $radius-lg;
+      background-color: $secondary;
+      @include transition-all;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+
+      &:hover {
+        background-color: $secondary-light;
+      }
+
+      &--active {
+        background-color: $primary-light;
+        color: $text-white;
+      }
+
+      &-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background-color: $secondary-light;
+        @include flex-center;
+        margin-bottom: 0.5rem;
+        overflow: hidden;
+
+        img {
+          width: 48px;
+          height: 48px;
+          object-fit: contain;
+        }
+      }
+
+      &-name {
+        font-size: $font-size-sm;
+        font-weight: 500;
+        text-align: center;
+      }
+    }
+  }
+
+}

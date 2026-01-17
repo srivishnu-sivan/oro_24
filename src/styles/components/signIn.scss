@@ -1,0 +1,555 @@
+// Sign In Page
+@use "../utils/_variable.scss" as *;
+
+.signin {
+  min-height: 100vh;
+  position: relative;
+
+  &__background,
+  &__overlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__background {
+    background: url('/images/SigninBackground.jpg') center / cover no-repeat;
+    filter: blur(5px);
+  }
+
+  &__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  &__content {
+    position: relative;
+    min-height: 100vh;
+    padding: 53px 1rem;
+    @include flex-col;
+    align-items: center;
+    justify-content: space-between;
+
+    @include responsive(sm) {
+      padding: 60px 2rem;
+    }
+
+    @include responsive(md) {
+      padding: 70px 3rem;
+    }
+  }
+
+  &__logo {
+    max-width: 212px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__form {
+    width: 100%;
+    max-width: 428px;
+    padding: 19px;
+    background: $bg-card;
+    border: 1px solid $border-secondary;
+    border-radius: $radius-xl;
+    box-shadow: $shadow-xl;
+
+    @include responsive(sm) {
+      padding: 28px;
+    }
+
+    @include responsive(md) {
+      padding: 34px 34px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 25px;
+    color: $text-primary;
+
+    @include responsive(md) {
+      font-size: 26px;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__field {
+    @include flex-col;
+    margin-bottom: 15px;
+
+    label {
+      color: $text-accent;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+  }
+
+  &__error {
+    color: $bg-error;
+    font-size: $font-size-md;
+    text-align: center;
+    margin-bottom: 15px;
+      min-height: 10px;
+  }
+
+}
+
+// Services Page
+.services {
+  min-height: 100vh;
+  background-color: $secondary-light;
+
+  &__hero {
+    background-color: $secondary;
+
+    .container {
+      @include flex-between;
+      flex-direction: column;
+
+      @include responsive(lg) {
+        flex-direction: row;
+      }
+    }
+
+    &__content {
+      width: 100%;
+      padding: 3rem 1rem;
+
+      @include responsive(lg) {
+        width: 50%;
+        padding: 6rem 204px 6rem 0;
+      }
+    }
+
+    &__title {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: $primary-light;
+
+      span {
+        &.bold {
+          font-weight: 700;
+        }
+
+        &.small {
+          font-size: 18px;
+          display: block;
+          margin-top: 0.5rem;
+        }
+      }
+
+      @include responsive(sm) {
+        font-size: 28px;
+      }
+
+      @include responsive(md) {
+        font-size: 33px;
+      }
+
+      @include responsive(lg) {
+        font-size: 44px;
+        line-height: 78px;
+
+        .small {
+          font-size: 24px;
+          line-height: 42px;
+        }
+      }
+    }
+
+    &__image {
+      position: relative;
+      width: 100%;
+      height: 200px;
+
+      @include responsive(sm) {
+        height: 250px;
+      }
+
+      @include responsive(lg) {
+        width: 38%;
+        height: 342px;
+        margin-left: -2px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        width: 54%;
+        background: linear-gradient(to right, transparent, $secondary);
+      }
+    }
+  }
+
+  &__section {
+    padding: 2rem 1rem;
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+
+      @include responsive(sm) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @include responsive(md) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      @include responsive(lg) {
+        grid-template-columns: repeat(8, 1fr);
+      }
+    }
+
+    &__category {
+      @include flex-col;
+      @include flex-center;
+      padding: 1rem;
+      border-radius: $radius-lg;
+      background-color: $secondary;
+      @include transition-all;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $secondary-light;
+      }
+
+      &--active {
+        background-color: $primary-light;
+        color: $text-white;
+      }
+
+      &-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background-color: $secondary-light;
+        @include flex-center;
+        margin-bottom: 0.5rem;
+        overflow: hidden;
+
+        img {
+          width: 48px;
+          height: 48px;
+          object-fit: contain;
+        }
+      }
+
+      &-name {
+        font-size: $font-size-sm;
+        font-weight: 500;
+        text-align: center;
+      }
+    }
+  }
+
+  &__listings {
+    width: 100%;
+    padding: 0 1rem;
+
+    @include responsive(lg) {
+      width: 46%;
+    }
+
+    &__title {
+      font-size: $font-size-2xl;
+      font-weight: 400;
+      line-height: 44px;
+      color: $primary-light;
+      margin-bottom: 1.5rem;
+    }
+
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+
+      @include responsive(sm) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    &__card {
+      background-color: $secondary;
+      border-radius: $radius-xl;
+      overflow: hidden;
+      box-shadow: $shadow-sm;
+      cursor: pointer;
+      @include transition-all;
+
+      &:hover {
+        box-shadow: $shadow-md;
+      }
+
+      &-image {
+        height: 168px;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          @include transition-all;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+
+      &-content {
+        padding: 1rem;
+      }
+
+      &-title {
+        font-size: $font-size-lg;
+        font-weight: 500;
+        color: $primary;
+        margin-bottom: 0.5rem;
+      }
+
+      &-info {
+        @include flex-between;
+      }
+
+      &-price {
+        @include flex-center;
+        gap: 4px;
+        font-size: $font-size-xl;
+        color: $primary;
+
+        img {
+          width: 16px;
+          height: 16px;
+        }
+      }
+
+      &-duration {
+        @include flex-center;
+        gap: 4px;
+        color: $text-secondary;
+        font-size: $font-size-sm;
+
+        img {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
+
+  &__details {
+    width: 100%;
+    padding: 0 1rem;
+
+    @include responsive(lg) {
+      width: 54%;
+    }
+
+    &__container {
+      background-color: $secondary-light;
+      border-radius: $radius-xl;
+      padding: 1.5rem;
+    }
+
+    &__title {
+      font-size: $font-size-2xl;
+      font-weight: 400;
+      line-height: 44px;
+      color: $primary-light;
+      margin-bottom: 1.25rem;
+    }
+
+    &__content {
+      background-color: $secondary;
+      border-radius: $radius-xl;
+      padding: 1.5rem;
+    }
+
+    &__header {
+      @include flex-between;
+      flex-direction: column;
+      margin-bottom: 1.5rem;
+
+      @include responsive(sm) {
+        flex-direction: row;
+      }
+
+      h3 {
+        font-size: $font-size-lg;
+        font-weight: 400;
+        line-height: 32px;
+        color: $primary;
+
+        @include responsive(sm) {
+          font-size: 23px;
+        }
+      }
+
+      .price {
+        @include flex-center;
+        gap: 4px;
+        font-size: $font-size-xl;
+        color: $primary;
+
+        @include responsive(sm) {
+          font-size: $font-size-2xl;
+        }
+
+        img {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+
+    &__image {
+      width: 100%;
+      height: 200px;
+      border-radius: $radius-xl;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+
+      @include responsive(sm) {
+        height: 250px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__description {
+      margin-bottom: 1.5rem;
+
+      p {
+        color: $text-secondary;
+        font-size: $font-size-sm;
+        line-height: 16px;
+        margin-bottom: 1rem;
+
+        &.label {
+          color: $text-accent;
+          font-size: $font-size-md;
+          font-weight: 400;
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+
+    &__table {
+      margin-bottom: 1.5rem;
+
+      &-header {
+        background-color: $primary-light;
+        border-radius: $radius-base $radius-base 0 0;
+        padding: 0.5rem 1rem;
+
+        .row {
+          @include flex-between;
+          color: $text-white;
+          font-size: $font-size-xs;
+          font-weight: 500;
+          line-height: 17px;
+        }
+      }
+
+      &-body {
+        background-color: $secondary-light;
+        border-radius: 0 0 $radius-base $radius-base;
+        padding: 0.5rem 1rem;
+
+        .row {
+          @include flex-between;
+          color: $primary;
+          font-size: $font-size-xs;
+          font-weight: 400;
+          line-height: 17px;
+        }
+      }
+    }
+
+    &__inclusions {
+      margin-bottom: 1.5rem;
+
+      .label {
+        color: $text-accent;
+        font-size: $font-size-md;
+        font-weight: 400;
+        margin-bottom: 0.5rem;
+      }
+
+      .content {
+        color: $text-secondary;
+        font-size: $font-size-xs;
+        line-height: 11px;
+      }
+    }
+  }
+}
+
+.loading {
+  @include flex-center;
+  min-height: 400px;
+
+  &__spinner {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    border: 3px solid $primary-light;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  &__text {
+    color: $primary-light;
+    font-size: $font-size-lg;
+    margin-left: 1rem;
+  }
+}
+
+.error {
+  @include flex-col;
+  @include flex-center;
+  min-height: 400px;
+  padding: 2rem;
+  text-align: center;
+
+  &__icon {
+    width: 6rem;
+    height: 6rem;
+    color: $text-muted;
+    margin-bottom: 1.5rem;
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: 500;
+    color: $text-secondary;
+    margin-bottom: 0.5rem;
+  }
+
+  &__message {
+    color: $text-muted;
+    margin-bottom: 1.5rem;
+  }
+}

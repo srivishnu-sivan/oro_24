@@ -1,0 +1,235 @@
+@use "../utils/_variable" as *;
+
+
+.header {
+  background-color: $header-bg;
+  border-bottom: 1px solid $header-border;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  &__container {
+    width: 100%; 
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px;
+    position: relative;
+
+    @include responsive(lg) {
+      padding: 10px 15rem; 
+    }
+      @include responsive(md) {
+      padding: 10px 6rem;  
+    }
+  }
+
+  &__logo {
+    width: 90px;
+    height: auto;
+  }
+
+  &__nav {
+    display: none;
+    @include responsive(lg) {
+      display: flex;
+      align-items: center;
+      gap: 13rem;  
+    }
+  }
+
+  &__menu {
+    display: flex;
+    gap: 2rem; 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    a {
+      color: $text-muted;
+      text-decoration: none;
+      font-size: $font-size-sm;
+      transition: color 0.2s;
+
+      &.is-active {
+        color: $text-white;
+        font-weight: 500;
+      }
+
+      &:hover {
+        color: $text-white;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1.5rem;  
+    align-items: center;
+  }
+
+  &__language {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    color: $text-white;
+    font-size: $font-size-xs;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    img {
+      width: 14px;
+      height: 10px;
+      border-radius: 2px;
+    }
+  }
+
+  &__cart {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    .badge {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background-color: $bg-error;
+      color: $text-white;
+      font-size: $font-size-xs;
+      padding: 1px 4px;
+      border-radius: 8px;
+      min-width: 16px;
+      text-align: center;
+    }
+  }
+
+  &__search,
+  &__login {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: $text-white;
+    font-size: $font-size-md;
+  }
+
+  &__hamburger {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: $text-white;
+    cursor: pointer;
+    padding: 8px;
+
+    @include responsive(lg) {
+      display: none;
+    }
+  }
+
+  &__mobile-menu {
+    display: block;
+    background: $header-bg;
+    border-top: 1px solid $header-border;
+    padding: 1rem 0;
+
+    @include responsive(lg) {
+      display: none;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 12px 0;
+        text-align: center;
+
+        a {
+          color: $text-white;
+          text-decoration: none;
+          font-size: $font-size-md;
+          display: block;
+          padding: 8px 0;
+
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  background-color: $footer-bg;
+
+  &__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 15px 7rem;
+  }
+
+  &__content {
+    @include flex-between;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include responsive(md) {
+      flex-direction: row;
+    }
+  }
+
+  &__copyright {
+    color: $secondary-light;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+
+    @include responsive(md) {
+      text-align: left;
+    }
+
+    span {
+      font-weight: 100;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+
+    @include responsive(sm) {
+      flex-direction: row;
+      gap: 20px;
+    }
+  }
+
+  &__link {
+    color: $secondary-light;
+    font-size: $font-size-sm;
+    line-height: 20px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &--medium {
+      font-weight: 500;
+    }
+  }
+}

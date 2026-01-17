@@ -1,0 +1,48 @@
+// Import variables and mixins
+@use './utils/_variable.scss';
+@use './components/_common.scss';
+@use './components/_ui.scss';
+@use './components/signin.scss';
+@use './components/services/services.scss';
+@use './components/services/heroSectionServices.scss';
+@use './components/services/ServiceSection.scss';
+@use './components/services/ServiceListing.scss';
+@use './components/services/Servicedetails.scss';
+
+
+
+// Global styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Avenir', 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
