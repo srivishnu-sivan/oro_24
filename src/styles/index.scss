@@ -1,19 +1,9 @@
 // Import variables and mixins
-// @use './utils/_variable.scss';
-// @use './components/_common.scss';
-// @use './components/_ui.scss';
-// @use './components/signin.scss';
-// @use './components/services/services.scss';
-// @use './components/services/heroSectionServices.scss';
-// @use './components/services/ServiceSection.scss';
-// @use './components/services/ServiceListing.scss';
-// @use './components/services/Servicedetails.scss';
-
 @use './utils/variable';
 
 @use './components/common';
 @use './components/ui';
-@use './components/_signin.scss';
+@use './components/signin';
 
 @use './components/services/services';
 @use './components/services/hero-section-services';
